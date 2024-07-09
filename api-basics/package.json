@@ -2,9 +2,9 @@
   "name": "api-basics",
   "version": "1.0.0",
   "description": "",
-  "main": "array.js",
+  "main": "datacrud.js",
   "scripts": {
-    "start":"nodemon array.js",
+    "start":"nodemon datacrud.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
