@@ -1,0 +1,56 @@
+GET http://localhost:1100/
+
+###
+
+GET http://localhost:1100/term
+
+###
+
+GET http://localhost:1100/4
+
+###
+
+GET http://localhost:1100/sip/200000/11/12
+
+
+###
+
+POST http://localhost:1100/include
+Content-Type: application/json
+
+{
+    "projectorId":76766767,
+    "projectorName":"Zebronics",
+    "projectorPrice":12000
+}
+
+###
+
+GET http://localhost:1100/
+
+###
+
+PUT http://localhost:1100/change/1
+Content-Type: application/json
+
+{
+    "projectorId":11111,
+    "projectorName":"MediaTek",
+    "projectorPrice":9000
+}
+
+
+###
+
+PUT http://localhost:1100/replace
+Content-Type: application/json
+
+{
+    "projectorId":8778,
+    "projectorName":"MediaTek",
+    "projectorPrice":9000
+}
+
+###
+
+DELETE http://localhost:1100/remove/1
