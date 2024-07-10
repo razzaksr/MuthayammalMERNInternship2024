@@ -13,3 +13,4 @@ const run=async()=>{
   }
 }
 run().catch(console.dir);
+require('./logistics')

@@ -1,0 +1,54 @@
+GET http://localhost:1234/
+
+###
+
+POST http://localhost:1234/deliver
+Content-Type: application/json
+
+{
+    "trackId":678347444,
+    "receiverName":"Romika",
+    "receiverAddress":"Tiruchengode",
+    "receiverContact":56723237344,
+    "itemName":"iPhone 16 Pro",
+    "itemPrice":160000,
+    "status":"Transit"
+}
+
+###
+
+GET http://localhost:1234/668e5b33ff058e177a1844ac
+
+
+###
+
+GET http://localhost:1234/status/Return
+
+###
+
+PUT http://localhost:1234/
+Content-Type: application/json
+
+{
+    "_id": "668e5b02ff058e177a1844aa",
+    "trackId": 67893433,
+    "receiverName": "Likash",
+    "receiverAddress": "Rasipuram",
+    "receiverContact": 876764646464,
+    "itemName": "Cipla Plus",
+    "itemPrice": 5,
+    "status": "Delivered",
+    "__v": 0
+  }
+
+###
+
+PUT http://localhost:1234/modify
+
+###
+
+DELETE http://localhost:1234/erase/668e5b33ff058e177a1844ac
+
+###
+
+DELETE http://localhost:1234/many/Rasipuram
