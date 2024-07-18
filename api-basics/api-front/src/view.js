@@ -2,11 +2,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react';
 import { callDelete, callGet } from './service';
 import { Button } from '@mui/base';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useNavigate } from 'react-router-dom';
 
 export const Views=()=>{
 
     const[myDocuments,setMyDocuments]=useState([])
+
+    const nav=useNavigate()
 
     const makeFetch=async()=>{
         const t = await callGet()
@@ -78,11 +82,16 @@ export const Views=()=>{
                             (found._id!=0)?
                             <>
                                 <div className="mt-2 row justify-content-around">
+                                <Button onClick={async()=>{
+                                        nav(`/${found._id}`)
+                                    }} className="col-3 btn btn-outline-info" variant="contained">
+                                        <AutoFixHighIcon/>
+                                    </Button>
                                     <Button color="error" onClick={async()=>{
                                         // alert(JSON.stringify(found)+" to be deleted")
                                         const rec = await callDelete(found._id)
                                         alert(JSON.stringify(rec))
-                                    }} className="col-3" variant="contained">
+                                    }} className="col-3 btn btn-outline-danger" variant="contained">
                                         <DeleteOutlineIcon/>
                                     </Button>
                                 </div>

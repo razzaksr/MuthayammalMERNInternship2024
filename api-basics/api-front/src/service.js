@@ -2,6 +2,16 @@ import axios from 'axios'
 
 const url="/ekart"
 
+export const callUpdate=async(object)=>{
+    const t = await axios.put(`${url}`,object)
+    return t
+}
+
+export const callFetchOne=async(id)=>{
+    const t = await axios.get(`${url}/${id}`)
+    return t
+}
+
 export const callDelete=async(id)=>{
     const t = await axios.delete(`${url}/erase/${id}`)
     return t.data

@@ -9,11 +9,14 @@ import TextField from '@mui/material/TextField';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { callPost } from "./service";
-import { useNavigate } from "react-router-dom";
-export const Form =() => {
+import { callFetchOne, callPost, callUpdate } from "./service";
+import { useNavigate, useParams } from "react-router-dom";
+export const Update =() => {
+
+    const{id}=useParams()
 
     const[logistics,setLogistics]=useState({
+        "_id":0,
         "trackId":0,
         "receiverName":"",
         "receiverAddress":"",
@@ -22,6 +25,15 @@ export const Form =() => {
         "itemPrice":0,
         "status":""
     })
+
+    const gatherInfo=async()=>{
+        const t = await callFetchOne(id)
+        setLogistics(t.data)
+    }
+
+    useEffect(()=>{
+        gatherInfo()
+    },[])
 
     const collecting=(eve)=>{
         const{name,value}=eve.target
@@ -36,8 +48,7 @@ export const Form =() => {
     const nav=useNavigate()
 
     const publish = async()=>{
-        //alert(JSON.stringify(logistics))
-        const t = await callPost(logistics)
+        const t = await callUpdate(logistics)
         alert(JSON.stringify(t.data))
         nav("/")
     }
